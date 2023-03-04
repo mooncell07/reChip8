@@ -1,47 +1,54 @@
 import argparse
 import logging
-import logging.config
 
 import pygame
 
-from components import CPU, INIT_LOC_CONSTANT, Display, Memory, TICK
+from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Memory
 
-logging.config.fileConfig("journal.conf")
-logger = logging.getLogger(__name__)
+logging.basicConfig(
+    format="%(asctime)s:%(msecs)03d (%(levelname)s/%(module)s): %(message)s",
+    level=logging.DEBUG,
+    encoding="utf-8",
+    datefmt="%M:%S",
+)
 
 
 class Lemon:
     def __init__(self, rom) -> None:
         self.memory = Memory()
         self.load_rom(rom)
+        self.load_font()
 
         self.display = Display.create(multiplier=15)
-        self.cpu = CPU(logger, display=self.display, memory=self.memory)
+        self.cpu = CPU(display=self.display, memory=self.memory)
 
     def load_font(self):
         self.memory.load_binary("./bin/FONT")
+        logging.info(f"{TICK} Successfully loaded Fontset at location 0x0")
 
     def load_rom(self, rom):
         self.memory.load_binary(rom, offset=INIT_LOC_CONSTANT)
-        logger.info(f"{TICK} ROM loaded at {hex(INIT_LOC_CONSTANT)}")
+        logging.info(
+            f"{TICK} Successfully loaded ROM at location {hex(INIT_LOC_CONSTANT)}"
+        )
 
-    def boot(self):
-        self.load_font()
+    def tick(self):
+        self.cpu.step()
+        self.display.render()
+
+    def run(self):
         cycle = True
-
         while cycle:
-            self.cpu.step()
-            self.display.render()
+            self.tick()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     cycle = False
 
         self.display.delete()
 
-
 parser = argparse.ArgumentParser(prog="Lemon", description="Chip-8 Virtual Machine.")
 parser.add_argument("rom", help="Path to the rom file.")
 args = parser.parse_args()
 
 lemon = Lemon(args.rom)
-lemon.boot()
+lemon.run()
