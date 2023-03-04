@@ -4,7 +4,7 @@ from .constants import ROWS, COLUMNS, COLORS
 pygame.init()
 
 
-__all__ = ("Display", "ROWS", "COLUMNS")
+__all__ = ("Display",)
 
 
 class Display:

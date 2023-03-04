@@ -1,16 +1,16 @@
 from .display import COLUMNS, ROWS
 from .opcode import Opcode
-from .constants import INIT_LOC_CONSTANT
-
+from .constants import INIT_LOC_CONSTANT, CROSS
+import logging
+from tabulate import tabulate
 
 __all__ = ("CPU", "INIT_LOC_CONSTANT")
 
 
 class CPU:
-    def __init__(self, logger, display, memory) -> None:
+    def __init__(self, display, memory) -> None:
         self.display = display
         self.memory = memory
-        self.logger = logger
 
         self.V = [0] * 16
         self.I = 0
@@ -19,6 +19,7 @@ class CPU:
         self.PC = INIT_LOC_CONSTANT
         self.SP = 0
         self.stack = [0] * 16
+        self.PC_inc = True
 
     def SYS_addr(self, opcode) -> None:
         optab = {0x00: self.NOP, 0xE0: self.CLS}
@@ -27,38 +28,22 @@ class CPU:
     def NOP(self, _) -> None:
         ...
 
-    def CLS(self, opcode) -> None:
+    def CLS(self, _) -> None:
         self.display.clear()
-        self.logger.debug(f"CLS({opcode}): Cleared the screen")
 
     def JP_addr(self, opcode) -> None:
-        log_pc = hex(self.PC)
         self.PC = opcode.nnn
-        self.logger.debug(
-            f"Jp_addr({opcode}): PC({log_pc}) set to nnn({hex(opcode.nnn)}) [PC={hex(self.PC)}]"
-        )
+        self.PC_inc = False
 
     def LD_Vx_byte(self, opcode) -> None:
-        log_vx = hex(self.V[opcode.x])
         self.V[opcode.x] = opcode.kk
-        self.logger.debug(
-            f"LD_Vx_byte({opcode}): V[{opcode.x}]({log_vx}) set to {hex(opcode.kk)} [V[{opcode.x}]={hex(self.V[opcode.x])}]"
-        )
 
     def ADD_Vx_byte(self, opcode) -> None:
-        log_vx = hex(self.V[opcode.x])
         self.V[opcode.x] += opcode.kk
         self.V[opcode.x] &= 0xFF
-        self.logger.debug(
-            f"ADD_Vx_byte({opcode}): V[{opcode.x}] set to {log_vx} + {hex(opcode.kk)} [Vx+kk={hex(self.V[opcode.x])}]"
-        )
 
     def LD_I_addr(self, opcode) -> None:
-        log_i = hex(self.I)
         self.I = opcode.nnn
-        self.logger.debug(
-            f"LD_I_addr({opcode}): I({log_i}) set to nnn({hex(opcode.nnn)}) [I={hex(self.I)}]"
-        )
 
     def DRW_Vx_Vy_nibble(self, opcode):
         x = self.V[opcode.x] % COLUMNS
@@ -92,9 +77,31 @@ class CPU:
     def step(self):
         fetch = (self.memory.space[self.PC] << 8) | self.memory.space[self.PC + 1]
         opcode = Opcode(fetch)
-        self.PC += 2
-
         try:
-            self.optable[opcode.type](opcode)
+            operation = self.optable[opcode.type]
         except KeyError:
-            raise ValueError(f"Opcode not found: {hex(opcode.type)}")
+            logging.error(f"{CROSS} Opcode not found: {opcode}")
+            self.display.delete()
+
+        self._log_state(operation, opcode)
+        operation(opcode)
+
+        self._ifpcinc()
+
+    def _log_state(self, operation, opcode):
+        table = tabulate(
+            (
+                ("Op", f"{operation.__name__}({opcode})"),
+                ("PC", hex(self.PC)),
+                ("I", hex(self.I)),
+            ),
+            headers=("Variable", "Value"),
+            tablefmt="github",
+        )
+        logging.debug(f"\n{table}\n")
+
+    def _ifpcinc(self):
+        if self.PC_inc:
+            self.PC += 2
+        else:
+            self.PC_inc = True
