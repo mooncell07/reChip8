@@ -1,9 +1,9 @@
 import argparse
 import logging
-
+import time
 import pygame
 
-from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Memory
+from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Memory, Keypad
 
 logging.basicConfig(
     format="%(asctime)s:%(msecs)03d (%(levelname)s/%(module)s): %(message)s",
@@ -20,7 +20,10 @@ class Lemon:
         self.load_font()
 
         self.display = Display.create(multiplier=15)
-        self.cpu = CPU(display=self.display, memory=self.memory)
+        self.keypad = Keypad()
+        self.cpu = CPU(display=self.display, memory=self.memory, keypad=self.keypad)
+        self.FPS = 60
+        self.now = time.time()
 
     def load_font(self):
         self.memory.load_binary("./bin/FONT")
@@ -39,12 +42,18 @@ class Lemon:
     def run(self):
         cycle = True
         while cycle:
-            self.tick()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     cycle = False
-
+                if event.type == pygame.KEYUP:
+                    if event.key in self.keypad.keymap:
+                        self.keypad.unset(self.keypad.keymap[event.key])
+                if event.type == pygame.KEYDOWN:
+                    if event.key in self.keypad.keymap:
+                        self.keypad.set(self.keypad.keymap[event.key])
+            self.tick()
         self.display.delete()
+
 
 parser = argparse.ArgumentParser(prog="Lemon", description="Chip-8 Virtual Machine.")
 parser.add_argument("rom", help="Path to the rom file.")
