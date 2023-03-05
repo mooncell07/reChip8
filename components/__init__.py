@@ -3,3 +3,4 @@ from .memory import *
 from .display import *
 from .opcode import *
 from .constants import *
+from .keypad import *
