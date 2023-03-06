@@ -1,3 +1,5 @@
+import typing as t
+
 __all__ = ("Opcode",)
 
 
@@ -14,42 +16,44 @@ class Opcode:
     nnn: (second, third and fourth nibble) 12-bit immediate memory address
     """
 
-    def __new__(cls, inst):
+    def __new__(cls, inst: int) -> t.Self:
         if isinstance(inst, int) and len(str(inst)) < 6:
             self = super(Opcode, cls).__new__(cls)
-            self.inst = inst
             return self
 
         else:
             raise ValueError(f"BAD OPCODE: {inst}")
 
+    def __init__(self, inst: int) -> None:
+        self.inst = inst
+
     @property
-    def type(self):
+    def type(self) -> int:
         value = self.inst & 0xF000
         return value
 
     @property
-    def x(self):
+    def x(self) -> int:
         value = (self.inst & 0x0F00) >> 8
         return value
 
     @property
-    def y(self):
+    def y(self) -> int:
         value = (self.inst & 0x00F0) >> 4
         return value
 
     @property
-    def n(self):
+    def n(self) -> int:
         value = self.inst & 0x000F
         return value
 
     @property
-    def kk(self):
+    def kk(self) -> int:
         value = self.inst & 0x00FF
         return value
 
     @property
-    def nnn(self):
+    def nnn(self) -> int:
         value = self.inst & 0x0FFF
         return value
 
