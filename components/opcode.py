@@ -2,6 +2,7 @@ __all__ = ("Opcode",)
 
 
 class Opcode:
+    __slots__ = ("inst",)
     """
     inst = hex(type|x|y|n|nn|nnn)
     format spec:
