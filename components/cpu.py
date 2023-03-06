@@ -1,10 +1,13 @@
 import logging
+import typing as t
 from random import randint
 
 import pygame
 
-from .constants import CROSS, INIT_LOC_CONSTANT
-from .display import COLUMNS, ROWS
+from .constants import COLUMNS, CROSS, INIT_LOC_CONSTANT, ROWS
+from .display import Display
+from .keypad import Keypad
+from .memory import Memory
 from .opcode import Opcode
 
 pygame.mixer.init()
@@ -28,24 +31,24 @@ class CPU:
         "stack",
     )
 
-    def __init__(self, display, memory, keypad) -> None:
+    def __init__(self, display: Display, memory: Memory, keypad: Keypad) -> None:
         # devices
         self.display = display
         self.memory = memory
         self.keypad = keypad
-        self.sound = pygame.mixer.Sound("beep.mp3")
-        self.op = None
+        self.sound: pygame.mixer.Sound = pygame.mixer.Sound("beep.mp3")
+        self.op: Opcode = Opcode(inst=0x0000)
 
         # registers
-        self.V = [0] * 16
-        self.I = 0
-        self.DT = 0
-        self.ST = 0
-        self.PC = INIT_LOC_CONSTANT
-        self.stack = [0] * 16
+        self.V: t.List[int] = [0] * 16
+        self.I: int = 0
+        self.DT: int = 0
+        self.ST: int = 0
+        self.PC: int = INIT_LOC_CONSTANT
+        self.stack: t.List[int] = [0] * 16
 
         # flags
-        self.halt = False
+        self.halt: bool = False
 
     def SYS_addr(self) -> None:
         """
@@ -359,7 +362,7 @@ class CPU:
             self.V[i] = self.memory.space[self.I + i]
 
     @property
-    def optable(self):
+    def optable(self) -> t.Mapping[int, t.Callable[..., None]]:
         return {
             0x0: self.SYS_addr,
             0x1: self.JP_addr,
@@ -379,10 +382,10 @@ class CPU:
             0xF: self.Jp_addr_F,
         }
 
-    def beep(self):
+    def beep(self) -> None:
         self.sound.play()
 
-    def step(self):
+    def step(self) -> None:
         fetch = (self.memory.space[self.PC] << 8) | self.memory.space[self.PC + 1]
         self.op = Opcode(fetch)
         self.PC += 2
@@ -395,7 +398,7 @@ class CPU:
 
         self.handle_timers()
 
-    def handle_timers(self):
+    def handle_timers(self) -> None:
         if self.DT > 0:
             self.DT -= 1
 

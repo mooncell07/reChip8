@@ -1,17 +1,18 @@
+import typing as t
+
 import pygame as pg
 
 __all__ = ("Keypad",)
 
 
 class Keypad:
-    __slots__ = ("keys", "state")
+    __slots__ = ("state",)
 
     def __init__(self) -> None:
-        self.state = [0] * 16
-        self.keys = {}
+        self.state: t.List[int] = [0] * 16
 
     @property
-    def keymap(self):
+    def keymap(self) -> t.Mapping[int, int]:
         return {
             pg.K_1: 1,
             pg.K_2: 2,
@@ -31,8 +32,8 @@ class Keypad:
             pg.K_v: 15,
         }
 
-    def set(self, index):
+    def set(self, index: int) -> None:
         self.state[index] = 1
 
-    def unset(self, index):
+    def unset(self, index: int) -> None:
         self.state[index] = 0

@@ -1,9 +1,10 @@
 import argparse
 import logging
 import time
+
 import pygame
 
-from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Memory, Keypad
+from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Keypad, Memory
 
 logging.basicConfig(
     format="%(asctime)s:%(msecs)03d (%(levelname)s/%(module)s): %(message)s",
@@ -16,34 +17,36 @@ logging.basicConfig(
 class Lemon:
     __slots__ = ("FPS", "cpu", "display", "keypad", "memory", "now")
 
-    def __init__(self, rom) -> None:
-        self.memory = Memory()
+    def __init__(self, rom: str) -> None:
+        self.memory: Memory = Memory()
         self.load_font()
         self.load_rom(rom)
-        self.display = Display.create(multiplier=10)
-        self.keypad = Keypad()
-        self.cpu = CPU(display=self.display, memory=self.memory, keypad=self.keypad)
-        self.FPS = 20
-        self.now = time.time()
+        self.display: Display = Display.create(multiplier=10)
+        self.keypad: Keypad = Keypad()
+        self.cpu: CPU = CPU(
+            display=self.display, memory=self.memory, keypad=self.keypad
+        )
+        self.FPS: int = 20
+        self.now: float = time.time()
 
-    def load_font(self):
+    def load_font(self) -> None:
         self.memory.load_binary("./bin/FONT")
         logging.info(f"{TICK} Successfully loaded Fontset at location 0x0")
 
-    def load_rom(self, rom):
+    def load_rom(self, rom: str) -> None:
         self.memory.load_binary(rom, offset=INIT_LOC_CONSTANT)
         logging.info(
             f"{TICK} Successfully loaded ROM at location {hex(INIT_LOC_CONSTANT)}"
         )
 
-    def tick(self):
+    def tick(self) -> None:
         if not self.cpu.halt:
             if (time.time() - self.now) > (self.FPS / 1000):
                 self.cpu.step()
 
         self.display.render()
 
-    def run(self):
+    def run(self) -> None:
         cycle = True
         while cycle:
             self.tick()
