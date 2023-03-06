@@ -36,6 +36,7 @@ class Display:
         return loc
 
     def render(self):
+        self.screen.fill(COLORS["OFF"])
         for i in range(ROWS * COLUMNS):
             x = (i % COLUMNS) * self.multiplier
             y = (i // COLUMNS) * self.multiplier

@@ -22,46 +22,35 @@ class CPU:
         self.DT = 0
         self.ST = 0
         self.PC = INIT_LOC_CONSTANT
-        self.SP = 0
         self.stack = [0] * 16
 
         # flags
-        self.PC_inc = True
         self.halt = False
-        self.ifdraw = False
 
     def SYS_addr(self, opcode) -> None:
         """
         $0nnn - Jump to a machine code routine at nnn. (Edit: use kk instead)
         """
-        optab = {0x00: self.NOP, 0xE0: self.CLS, 0xEE: self.RET}
+        optab = {0xE0: self.CLS, 0xEE: self.RET}
         optab[opcode.kk]()
-
-    def NOP(self) -> None:
-        """
-        $0000 - NOP (Never used)
-        """
-        ...
 
     def CLS(self) -> None:
         """
         $00E0 - Clear the display.
         """
-        self.ifdraw = True
         self.display.clear()
 
     def RET(self) -> None:
         """
         $00EE - Return from a subroutine.
         """
-        self.PC = self.stack.pop() + 2
+        self.PC = self.stack.pop()
 
     def JP_addr(self, opcode: Opcode) -> None:
         """
         $1nnn - Jump to location nnn. (PC = nnn)
         """
         self.PC = opcode.nnn
-        self.PC_inc = False
 
     def CALL_addr(self, opcode: Opcode) -> None:
         """
@@ -160,8 +149,7 @@ class CPU:
         else:
             self.V[0xF] = 0
 
-        self.V[opcode.x] = val & 0x00FF
-        self.V[opcode.x] &= 0xFF
+        self.V[opcode.x] = val & 0xFF
 
     def SUB_Vx_Vy(self, opcode: Opcode) -> None:
         """
@@ -183,7 +171,7 @@ class CPU:
         $8xy6 - Set Vx = Vx SHR 1.
         """
         self.V[0xF] = self.V[opcode.x] & 1
-        self.V[opcode.x] >>= 1
+        self.V[opcode.x] = self.V[opcode.x] >> 1
         self.V[opcode.x] &= 0xFF
 
     def SUBN_Vx_Vy(self, opcode: Opcode) -> None:
@@ -203,7 +191,8 @@ class CPU:
         $8xyE - Set Vx = Vx SHL 1.
         """
         self.V[0xF] = self.V[opcode.x] >> 7
-        self.V[opcode.x] <<= 1
+        self.V[opcode.x] = self.V[opcode.x] << 1
+        self.V[opcode.x] &= 0xFF
 
     def SNE_Vx_Vy(self, opcode: Opcode) -> None:
         """
@@ -249,7 +238,6 @@ class CPU:
                     self.V[0xF] = 1
 
                 self.display.buffer[index] ^= px
-        self.ifdraw = True
 
     def Jp_addr_E(self, opcode: Opcode) -> None:
         """
@@ -347,15 +335,14 @@ class CPU:
         """
         $Fx55 - Store registers V0 through Vx in memory starting at location I.
         """
-        for i in range(self.V[opcode.x]):
+        for i in range(opcode.x + 1):
             self.memory.space[self.I + i] = self.V[i]
 
     def LD_Vx_I(self, opcode: Opcode) -> None:
         """
         $Fx65 - Read registers V0 through Vx from memory starting at location I.
         """
-        for i in range(self.V[opcode.x]):
-            print(self.V[opcode.x])
+        for i in range(opcode.x + 1):
             self.V[i] = self.memory.space[self.I + i]
 
     @property
@@ -382,6 +369,7 @@ class CPU:
     def step(self):
         fetch = (self.memory.space[self.PC] << 8) | self.memory.space[self.PC + 1]
         opcode = Opcode(fetch)
+
         try:
             operation = self.optable[opcode.type]
         except KeyError:
@@ -389,7 +377,9 @@ class CPU:
             self.display.delete()
 
         self._log_state(operation, opcode)
+        self.PC += 2
         operation(opcode)
+
 
         if not self.halt:
             if self.DT > 0:
@@ -398,12 +388,11 @@ class CPU:
             if self.ST > 0:
                 self.ST -= 1
 
-        self._ifpcinc()
-
     def _log_state(self, operation, opcode):
         table = tabulate(
             (
-                ("Op", f"{operation.__name__}({opcode})"),
+                ("Op", f"{operation.__name__}({hex(opcode.type)})"),
+                ("DATA", hex(self.memory.space[self.PC])),
                 ("PC", hex(self.PC)),
                 ("I", hex(self.I)),
                 ("V", self.V),
@@ -412,9 +401,3 @@ class CPU:
             tablefmt="github",
         )
         logging.debug(f"\n{table}\n")
-
-    def _ifpcinc(self):
-        if self.PC_inc:
-            self.PC += 2
-        else:
-            self.PC_inc = True
