@@ -14,14 +14,16 @@ logging.basicConfig(
 
 
 class Lemon:
+    __slots__ = ("FPS", "cpu", "display", "keypad", "memory", "now")
+
     def __init__(self, rom) -> None:
         self.memory = Memory()
+        self.load_font()
         self.load_rom(rom)
-
-        self.display = Display.create(multiplier=15)
+        self.display = Display.create(multiplier=10)
         self.keypad = Keypad()
         self.cpu = CPU(display=self.display, memory=self.memory, keypad=self.keypad)
-        self.FPS = 60
+        self.FPS = 20
         self.now = time.time()
 
     def load_font(self):
@@ -35,13 +37,17 @@ class Lemon:
         )
 
     def tick(self):
-        self.cpu.step()
+        if not self.cpu.halt:
+            if (time.time() - self.now) > (self.FPS / 1000):
+                self.cpu.step()
+
         self.display.render()
 
     def run(self):
-        self.load_font()
         cycle = True
         while cycle:
+            self.tick()
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     cycle = False
@@ -51,13 +57,16 @@ class Lemon:
                 if event.type == pygame.KEYUP:
                     if event.key in self.keypad.keymap:
                         self.keypad.unset(self.keypad.keymap[event.key])
-            self.tick()
+
         self.display.delete()
 
 
-parser = argparse.ArgumentParser(prog="Lemon", description="Chip-8 Virtual Machine.")
-parser.add_argument("rom", help="Path to the rom file.")
-args = parser.parse_args()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        prog="Lemon", description="Chip-8 Virtual Machine."
+    )
+    parser.add_argument("rom", help="Path to the rom file.")
+    args = parser.parse_args()
 
-lemon = Lemon(args.rom)
-lemon.run()
+    lemon = Lemon(args.rom)
+    lemon.run()

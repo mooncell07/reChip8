@@ -2,6 +2,8 @@ __all__ = ("Memory",)
 
 
 class Memory:
+    __slots__ = ("space",)
+
     def __init__(self) -> None:
         self.space = bytearray(4096)
 

@@ -1,5 +1,6 @@
 import pygame
-from .constants import ROWS, COLUMNS, COLORS
+
+from .constants import COLORS, COLUMNS, ROWS
 
 pygame.init()
 
@@ -8,6 +9,8 @@ __all__ = ("Display",)
 
 
 class Display:
+    __slots__ = ("buffer", "multiplier", "screen")
+
     def __init__(self, screen, multiplier):
         self.screen = screen
         self.multiplier = multiplier
@@ -17,7 +20,6 @@ class Display:
     def create(cls, multiplier):
         screen = pygame.display.set_mode((COLUMNS * multiplier, ROWS * multiplier))
         self = cls(screen, multiplier)
-        self.clear()
 
         return self
 
@@ -51,4 +53,3 @@ class Display:
 
     def clear(self):
         self.buffer = bytearray(ROWS * COLUMNS)
-        self.screen.fill(COLORS["OFF"])
