@@ -17,7 +17,6 @@ class Lemon:
     def __init__(self, rom) -> None:
         self.memory = Memory()
         self.load_rom(rom)
-        self.load_font()
 
         self.display = Display.create(multiplier=15)
         self.keypad = Keypad()
@@ -40,17 +39,18 @@ class Lemon:
         self.display.render()
 
     def run(self):
+        self.load_font()
         cycle = True
         while cycle:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     cycle = False
-                if event.type == pygame.KEYUP:
-                    if event.key in self.keypad.keymap:
-                        self.keypad.unset(self.keypad.keymap[event.key])
                 if event.type == pygame.KEYDOWN:
                     if event.key in self.keypad.keymap:
                         self.keypad.set(self.keypad.keymap[event.key])
+                if event.type == pygame.KEYUP:
+                    if event.key in self.keypad.keymap:
+                        self.keypad.unset(self.keypad.keymap[event.key])
             self.tick()
         self.display.delete()
 
