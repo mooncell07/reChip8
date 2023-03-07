@@ -13,7 +13,7 @@ logging.basicConfig(
 
 
 class Lemon:
-    __slots__ = ("FPS", "cpu", "display", "keypad", "memory", "now")
+    __slots__ = ("cpu", "display", "keypad", "memory")
 
     def __init__(self, rom: str, mul: int) -> None:
         self.memory: Memory = Memory()
