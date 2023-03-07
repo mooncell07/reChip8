@@ -6,7 +6,7 @@ from .constants import COLORS, COLUMNS, ROWS
 
 pygame.init()
 
-
+img = pygame.image.load("./assets/lemon.png")
 __all__ = ("Display",)
 
 
@@ -21,6 +21,8 @@ class Display:
     @classmethod
     def create(cls, multiplier: int) -> t.Self:
         screen = pygame.display.set_mode((COLUMNS * multiplier, ROWS * multiplier))
+        pygame.display.set_caption("Lemon")
+        pygame.display.set_icon(img)
         self = cls(screen, multiplier)
 
         return self
