@@ -143,18 +143,21 @@ class CPU:
         $8xy1 - Set Vx = Vx OR Vy.
         """
         self.V[self.op.x] = (self.V[self.op.x] | self.V[self.op.y]) & 0xFF
+        self.V[0xF] = 0
 
     def AND_Vx_Vy(self) -> None:
         """
         $8xy2 - Set Vx = Vx AND Vy.
         """
         self.V[self.op.x] = (self.V[self.op.x] & self.V[self.op.y]) & 0xFF
+        self.V[0xF] = 0
 
     def XOR_Vx_Vy(self) -> None:
         """
         $8xy3 - Set Vx = Vx XOR Vy.
         """
         self.V[self.op.x] = (self.V[self.op.x] ^ self.V[self.op.y]) & 0xFF
+        self.V[0xF] = 0
 
     def ADD_Vx_Vy(self) -> None:
         """
@@ -186,26 +189,28 @@ class CPU:
         """
         $8xy6 - Set Vx = Vx SHR 1.
         """
-        self.V[0xF] = self.V[self.op.x] & 1
+        prev = self.V[self.op.x]
+        self.V[self.op.x] = self.V[self.op.y]
         self.V[self.op.x] = (self.V[self.op.x] >> 1) & 0xFF
+        self.V[0xF] = prev & 1
 
     def SUBN_Vx_Vy(self) -> None:
         """
         $8xy7 - Set Vx = Vy - Vx, set VF = NOT borrow.
         """
+        self.V[self.op.x] = (self.V[self.op.y] - self.V[self.op.x]) & 0xFF
         if self.V[self.op.x] > self.V[self.op.y]:
             self.V[0xF] = 0
         else:
             self.V[0xF] = 1
 
-        self.V[self.op.x] = (self.V[self.op.y] - self.V[self.op.x]) & 0xFF
-
     def SHL_Vx_Vy(self) -> None:
         """
         $8xyE - Set Vx = Vx SHL 1.
         """
-        self.V[0xF] = self.V[self.op.x] >> 7
+        self.V[self.op.x] = self.V[self.op.y]
         self.V[self.op.x] = (self.V[self.op.x] << 1) & 0xFF
+        self.V[0xF] = self.V[self.op.x] >> 7
 
     def SNE_Vx_Vy(self) -> None:
         """
@@ -353,6 +358,7 @@ class CPU:
         """
         for i in range(self.op.x + 1):
             self.memory.space[self.I + i] = self.V[i]
+        self.I = self.op.x + 1
 
     def LD_Vx_I(self) -> None:
         """
@@ -360,6 +366,7 @@ class CPU:
         """
         for i in range(self.op.x + 1):
             self.V[i] = self.memory.space[self.I + i]
+        self.I = self.op.x + 1
 
     @property
     def optable(self) -> t.Mapping[int, t.Callable[..., None]]:

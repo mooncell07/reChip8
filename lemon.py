@@ -1,7 +1,5 @@
 import argparse
 import logging
-import time
-
 import pygame
 
 from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Keypad, Memory
@@ -26,8 +24,6 @@ class Lemon:
         self.cpu: CPU = CPU(
             display=self.display, memory=self.memory, keypad=self.keypad
         )
-        self.FPS: int = 20
-        self.now: float = time.time()
 
     def load_font(self) -> None:
         self.memory.load_binary("./bin/FONT")
@@ -41,8 +37,7 @@ class Lemon:
 
     def tick(self) -> None:
         if not self.cpu.halt:
-            if (time.time() - self.now) > (self.FPS / 1000):
-                self.cpu.step()
+            self.cpu.step()
 
         self.display.render()
 
