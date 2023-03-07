@@ -15,11 +15,11 @@ logging.basicConfig(
 class Lemon:
     __slots__ = ("FPS", "cpu", "display", "keypad", "memory", "now")
 
-    def __init__(self, rom: str) -> None:
+    def __init__(self, rom: str, mul: int) -> None:
         self.memory: Memory = Memory()
         self.load_font()
         self.load_rom(rom)
-        self.display: Display = Display.create(multiplier=10)
+        self.display: Display = Display.create(multiplier=mul)
         self.keypad: Keypad = Keypad()
         self.cpu: CPU = CPU(
             display=self.display, memory=self.memory, keypad=self.keypad
@@ -64,7 +64,10 @@ if __name__ == "__main__":
         prog="Lemon", description="Chip-8 Virtual Machine."
     )
     parser.add_argument("rom", help="Path to the rom file.")
+    parser.add_argument(
+        "--scale", help="Scale up\down the display window.", type=int, default=10
+    )
     args = parser.parse_args()
 
-    lemon = Lemon(args.rom)
+    lemon = Lemon(args.rom, args.scale)
     lemon.run()
