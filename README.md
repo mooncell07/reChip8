@@ -1,8 +1,7 @@
-<h1 style="text-align:center;font-size:25px">
+<h1 align="center">
 <img src="./assets/lemon.png" height=100>
 <br>Lemon.pie
 </h1>
-
 
 Lemon is a **[CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)** Emulator written in Python using Pygame.
 This library aims at implementing the original and classic varient of CHIP-8 Virtual Machine. Currently a Work in Progress.
