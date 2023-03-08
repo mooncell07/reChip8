@@ -4,7 +4,7 @@ site_author: Nova/hachi79
 
 theme:
   name: "material"
-  logo: /img/lemon.png
+  logo: img/lemon.png
   favicon: img/lemon.ico
   palette:
     - scheme: slate
