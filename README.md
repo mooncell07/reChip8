@@ -1,6 +1,7 @@
 <h1 align="center">
 <img src="./docs/img/lemon.png" height=100>
-<br>Lemon.pie
+<br><a href=(https://hachi79.github.io/lemon/>Lemon.pie</a>
+
 </h1>
 
 Lemon is a **[CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)** Emulator written in Python using Pygame.
