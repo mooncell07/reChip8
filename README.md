@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="./assets/lemon.png" height=100>
+<img src="./docs/img/lemon.png" height=100>
 <br>Lemon.pie
 </h1>
 
@@ -11,10 +11,10 @@ This project is the successor of my very first implementation of the VM (Now arc
 ## Screenshots
 
 ### IBM Logo:
-![ibm-logo](./assets/ibm-logo.png)
+![ibm-logo](./docs/img/ibm-logo.png)
 
 ### Corax Test:
-![test-opcode](./assets/test_opcode.png)
+![test-opcode](./docs/img/test_opcode.png)
 
 
 ## Resources:

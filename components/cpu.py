@@ -16,6 +16,10 @@ __all__ = ("CPU",)
 
 
 class CPU:
+    """
+    CPU of the Emulator.
+    """
+
     __slots__ = (
         "DT",
         "I",
@@ -32,6 +36,27 @@ class CPU:
     )
 
     def __init__(self, display: Display, memory: Memory, keypad: Keypad) -> None:
+        """
+        CPU construtor.
+
+        Args:
+            memory: Primary Memory of size 4096 bytes.
+            display: Display Handler for rendering sprites.
+            keypad: 16-key hexadecimal keypad for taking input.
+
+        Attributes:
+            sound (pygame.mixer.Sound): A [pygame.mixer.Sound](https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound) object.
+            op (Opcode): Opcode for identifying operations.
+
+            V (int): 16 General Purpose 8-bit registers.
+            I (int): 16-bit Index register to store memory locations.
+            DT (int): 8-bit Delay Timer.
+            ST (int): 8-bit Sound Timer.
+            PC (int): 16-bit register to store the currently executing address.
+            stack (List[int]): an array of 16 16-bit values to nest subroutines.
+
+            halt bool: Flag to check if the CPU is halted.
+        """
         # devices
         self.display = display
         self.memory = memory
@@ -370,6 +395,12 @@ class CPU:
 
     @property
     def optable(self) -> t.Mapping[int, t.Callable[..., None]]:
+        """
+        Property for opcode function lookup.
+
+        Returns:
+            dict: Mapping of opcode type:opcode function
+        """
         return {
             0x0: self.SYS_addr,
             0x1: self.JP_addr,
@@ -390,9 +421,15 @@ class CPU:
         }
 
     def beep(self) -> None:
+        """
+        Function to make a beep sound.
+        """
         self.sound.play()
 
     def step(self) -> None:
+        """
+        The main CPU method which fetches the opcodes, decodes them and execute.
+        """
         fetch = (self.memory.space[self.PC] << 8) | self.memory.space[self.PC + 1]
         self.op = Opcode(fetch)
         self.PC += 2
@@ -406,6 +443,9 @@ class CPU:
         self.handle_timers()
 
     def handle_timers(self) -> None:
+        """
+        Function to decrement ST and DT.
+        """
         if self.DT > 0:
             self.DT -= 1
 
