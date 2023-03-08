@@ -1,6 +1,6 @@
 <h1 align="center">
 <img src="./docs/img/lemon.png" height=100>
-<br><a href=(https://hachi79.github.io/lemon/>Lemon.pie</a>
+<br><a href="https://hachi79.github.io/lemon/">Lemon.pie</a>
 
 </h1>
 
