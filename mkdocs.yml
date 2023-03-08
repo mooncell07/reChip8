@@ -1,0 +1,54 @@
+site_name: Lemon
+site_description: Documentation for Lemon.
+site_author: Nova/hachi79
+
+theme:
+  name: "material"
+  logo: /img/lemon.png
+  favicon: img/lemon.ico
+  palette:
+    - scheme: slate
+      primary: yellow
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+    - scheme: default
+      primary: yellow
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+  features:
+    - navigation.top
+
+repo_name: hachi79/Lemon
+repo_url: https://github.com/hachi79/Lemon
+
+plugins:
+- search
+- mkdocstrings:
+    handlers:
+      python:
+        rendering:
+            show_root_heading: true
+            members_order: "source"
+        import:
+          - https://docs.python.org/3.10/objects.inv
+
+nav:
+  - Home: index.md
+  - Lemon.pie:
+    - Lemon: Lemon.pie\lemon.md
+    - Display: Lemon.pie\display.md
+    - CPU: Lemon.pie\cpu.md
+    - Memory: Lemon.pie\memory.md
+    - Opcode: Lemon.pie\opcode.md
+    - Keypad: Lemon.pie\keypad.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - toc:
+      permalink: "+"
+
+copyright: Copyright 2023 - Present &copy; hachi79

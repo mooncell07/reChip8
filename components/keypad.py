@@ -6,13 +6,26 @@ __all__ = ("Keypad",)
 
 
 class Keypad:
+    """
+    An object represeting a 16-key keypad of a standard keypad.
+    """
+
     __slots__ = ("state",)
 
     def __init__(self) -> None:
+        """
+        Keypad Constructor.
+
+        Attributes:
+            state: State storing KEYUP and KEYDOWN status of the 16 keys.
+        """
         self.state: t.List[int] = [0] * 16
 
     @property
     def keymap(self) -> t.Mapping[int, int]:
+        """
+        Mapping of pygame keys with locations on the keypad.
+        """
         return {
             pg.K_1: 1,
             pg.K_2: 2,
@@ -33,7 +46,19 @@ class Keypad:
         }
 
     def set(self, index: int) -> None:
+        """
+        Method to set a key in state array.
+
+        Args:
+            index: The key to set.
+        """
         self.state[index] = 1
 
     def unset(self, index: int) -> None:
+        """
+        Method to unset a key in state array.
+
+        Args:
+            index: The key to unset.
+        """
         self.state[index] = 0
