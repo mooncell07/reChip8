@@ -1,6 +1,6 @@
 site_name: Lemon
 site_description: Documentation for Lemon.
-site_author: Nova/hachi79
+site_author: Nova/mooncell07
 
 theme:
   name: "material"
@@ -20,8 +20,8 @@ theme:
   features:
     - navigation.top
 
-repo_name: hachi79/Lemon
-repo_url: https://github.com/hachi79/Lemon
+repo_name: mooncell07/Lemon
+repo_url: https://github.com/mooncell07/Lemon
 
 plugins:
 - search
@@ -51,4 +51,4 @@ markdown_extensions:
   - toc:
       permalink: "+"
 
-copyright: Copyright 2023 - Present &copy; hachi79
+copyright: Copyright 2023 - Present &copy; mooncell07
