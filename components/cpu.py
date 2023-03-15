@@ -383,7 +383,7 @@ class CPU:
         """
         for i in range(self.op.x + 1):
             self.memory.space[self.I + i] = self.V[i]
-        self.I = self.op.x + 1
+        self.I += self.op.x + 1
 
     def LD_Vx_I(self) -> None:
         """
@@ -391,7 +391,7 @@ class CPU:
         """
         for i in range(self.op.x + 1):
             self.V[i] = self.memory.space[self.I + i]
-        self.I = self.op.x + 1
+        self.I += self.op.x + 1
 
     @property
     def optable(self) -> t.Mapping[int, t.Callable[..., None]]:
