@@ -19,9 +19,9 @@ class Lemon:
     the internal devices.
     """
 
-    __slots__ = ("cpu", "display", "keypad", "memory")
+    __slots__ = ("cpu", "display", "keypad", "memory", "step")
 
-    def __init__(self, rom: str, mul: int) -> None:
+    def __init__(self, rom: str, mul: int, step: bool) -> None:
         """
         Lemon Constructor.
         The constructor is responsible for loading font and rom, and also initializing other
@@ -30,6 +30,7 @@ class Lemon:
         Args:
             rom: Path to the ROM file.
             mul: The screen size multiplier.
+            step: Switch to single stepping mode.
 
         Attributes:
             memory (Memory): Primary Memory of size 4096 bytes.
@@ -45,6 +46,7 @@ class Lemon:
         self.cpu: CPU = CPU(
             display=self.display, memory=self.memory, keypad=self.keypad
         )
+        self.step: bool = step
 
     def load_font(self) -> None:
         """
@@ -66,8 +68,13 @@ class Lemon:
         """
         Method representing a single tick from the emulator.
         """
-        if not self.cpu.halt:
-            self.cpu.step()
+        if self.step:
+            event = pygame.event.wait()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_PAGEUP:
+                self.cpu.step()
+        else:
+            if not self.cpu.halt:
+                self.cpu.step()
 
         self.display.render()
 
@@ -101,7 +108,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--scale", help="Scale up\down the display window.", type=int, default=10
     )
+    parser.add_argument(
+        "-S", "--step", help="Scale up\down the display window.", action="store_true"
+    )
     args = parser.parse_args()
 
-    lemon = Lemon(args.rom, args.scale)
+    lemon = Lemon(args.rom, args.scale, args.step)
     lemon.run()
