@@ -334,12 +334,10 @@ class CPU:
 
         while self.halt:
             event = pygame.event.wait()
-            if event.type == pygame.KEYDOWN:
-                if event.key in self.keypad.keymap:
-                    key = self.keypad.keymap[event.key]
-                    self.keypad.set(key)
-                    self.V[self.op.x] = key
 
+            if event.type == pygame.KEYDOWN:
+                if key := self.keypad.handle(event, self.display.screenshot):
+                    self.V[self.op.x] = key
                     self.halt = False
 
             if event.type == pygame.QUIT:

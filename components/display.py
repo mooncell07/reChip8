@@ -98,6 +98,9 @@ class Display:
                 )
         self.update()
 
+    def screenshot(self):
+        pygame.image.save(self.screen, "./out.png")
+
     def clear(self) -> None:
         """
         Clear the display buffer.
