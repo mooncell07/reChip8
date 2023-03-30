@@ -1,5 +1,6 @@
 import argparse
 import logging
+
 import pygame
 
 from components import CPU, INIT_LOC_CONSTANT, TICK, Display, Keypad, Memory
@@ -64,9 +65,12 @@ class Lemon:
             f"{TICK} Successfully loaded ROM at location {hex(INIT_LOC_CONSTANT)}"
         )
 
-    def tick(self, external) -> None:
+    def tick(self, external: bool) -> None:
         """
         Method representing a single tick from the emulator.
+
+        Args:
+            external: Whether a foreign process is asking for screenshots.
         """
         if self.step:
             event = pygame.event.wait()

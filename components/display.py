@@ -98,7 +98,10 @@ class Display:
                 )
         self.update()
 
-    def screenshot(self):
+    def screenshot(self) -> None:
+        """
+        Screenshot util.
+        """
         pygame.image.save(self.screen, "./out.png")
 
     def clear(self) -> None:
