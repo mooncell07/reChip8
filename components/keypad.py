@@ -1,6 +1,7 @@
 import typing as t
 
 import pygame as pg
+from pygame.event import Event
 
 __all__ = ("Keypad",)
 
@@ -62,3 +63,12 @@ class Keypad:
             index: The key to unset.
         """
         self.state[index] = 0
+
+    def handle(self, event: Event, screenshot: t.Callable[..., None]):
+        if event.key in self.keymap:
+            key = self.keymap[event.key]
+            self.set(key)
+            return key
+
+        if event.key == pg.K_PRINTSCREEN:
+            screenshot()

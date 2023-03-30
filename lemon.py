@@ -64,7 +64,7 @@ class Lemon:
             f"{TICK} Successfully loaded ROM at location {hex(INIT_LOC_CONSTANT)}"
         )
 
-    def tick(self) -> None:
+    def tick(self, external) -> None:
         """
         Method representing a single tick from the emulator.
         """
@@ -72,6 +72,8 @@ class Lemon:
             event = pygame.event.wait()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_PAGEUP:
                 self.cpu.step()
+                if external:
+                    self.display.screenshot()
         else:
             if not self.cpu.halt:
                 self.cpu.step()
@@ -85,14 +87,14 @@ class Lemon:
         """
         cycle = True
         while cycle:
-            self.tick()
+            self.tick(external=False)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     cycle = False
                 if event.type == pygame.KEYDOWN:
-                    if event.key in self.keypad.keymap:
-                        self.keypad.set(self.keypad.keymap[event.key])
+                    self.keypad.handle(event, self.display.screenshot)
+
                 if event.type == pygame.KEYUP:
                     if event.key in self.keypad.keymap:
                         self.keypad.unset(self.keypad.keymap[event.key])
