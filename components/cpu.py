@@ -33,6 +33,7 @@ class CPU:
         "op",
         "sound",
         "stack",
+        "counter",
     )
 
     def __init__(self, display: Display, memory: Memory, keypad: Keypad) -> None:
@@ -55,7 +56,8 @@ class CPU:
             PC (int): 16-bit register to store the currently executing address.
             stack (List[int]): an array of 16 16-bit values to nest subroutines.
 
-            halt bool: Flag to check if the CPU is halted.
+            halt (bool): Flag to check if the CPU is halted.
+            counter (int): Counter Variable that resets after 10 routines.
         """
         # devices
         self.display = display
@@ -74,6 +76,7 @@ class CPU:
 
         # flags
         self.halt: bool = False
+        self.counter: int = 0
 
     def SYS_addr(self) -> None:
         """
@@ -424,6 +427,17 @@ class CPU:
         """
         self.sound.play()
 
+    def pacemaker(self) -> None:
+        """
+        Pacemaker for running CPU at 10 opcodes per frame.
+        """
+        if self.counter < 10:
+            self.counter += 1
+        else:
+            self.counter = 0
+
+            pygame.time.wait(10)
+
     def step(self) -> None:
         """
         The main CPU method which fetches the opcodes, decodes them and execute.
@@ -434,6 +448,7 @@ class CPU:
 
         try:
             self.optable[(self.op.type & 0xF000) >> 12]()
+            self.pacemaker()
         except KeyError:
             logging.error(f"{CROSS} Opcode not found: {hex(self.op.type)}")
             self.display.delete()
