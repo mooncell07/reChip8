@@ -276,14 +276,16 @@ class CPU:
 
         for i in range(self.op.n):
             sprite = self.memory.space[self.I + i]
-            for j in range(8):
-                px = (sprite >> (7 - j)) & 1
-                index = self.display.wrap(x + j, y + i)
+            if (y + i) <= ROWS:
+                for j in range(8):
+                    if (x + j) <= COLUMNS:
+                        px = (sprite >> (7 - j)) & 1
+                        index = self.display.wrap(x + j, y + i)
 
-                if px == 1 and self.display.buffer[index] == 1:
-                    self.V[0xF] = 1
+                        if px == 1 and self.display.buffer[index] == 1:
+                            self.V[0xF] = 1
 
-                self.display.buffer[index] ^= px
+                        self.display.buffer[index] ^= px
 
     def Jp_addr_E(self) -> None:
         """
@@ -435,7 +437,6 @@ class CPU:
             self.counter += 1
         else:
             self.counter = 0
-
             pygame.time.wait(10)
 
     def step(self) -> None:
