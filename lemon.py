@@ -58,7 +58,10 @@ class Lemon:
 
     def load_rom(self, rom: str) -> None:
         """
-        Load ROM from the file path specified in memory from location `0x200` (512)
+        Load ROM in memory from location `0x200` (512)
+
+        Args:
+            rom: Path to the ROM file.
         """
         self.memory.load_binary(rom, offset=INIT_LOC_CONSTANT)
         logging.info(
@@ -70,40 +73,39 @@ class Lemon:
         Method representing a single tick from the emulator.
 
         Args:
-            external: Whether a foreign process is asking for screenshots.
+            external: Whether a foreign process is asking for screen captures.
         """
         if self.step:
             event = pygame.event.wait()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_PAGEUP:
-                self.cpu.step()
+                self.cpu.cycle()
                 if external:
-                    self.display.screenshot()
+                    self.display.capture()
         else:
             if not self.cpu.halt:
-                self.cpu.step()
+                self.cpu.cycle()
 
         self.display.render()
 
     def run(self) -> None:
         """
-        Main runner for the emulator, it takes care of taking user input,
-        ticking the internal hardwares and clean-up at shutdown.
+        Step through the emulation indefinitely.
         """
-        cycle = True
-        while cycle:
+        is_running = True
+        while is_running:
             self.tick(external=False)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    cycle = False
+                    is_running = False
                 if event.type == pygame.KEYDOWN:
-                    self.keypad.handle(event, self.display.screenshot)
+                    self.keypad.handle(event, self.display.capture)
 
                 if event.type == pygame.KEYUP:
                     if event.key in self.keypad.keymap:
                         self.keypad.unset(self.keypad.keymap[event.key])
 
-        self.display.delete()
+        self.display.destroy()
 
 
 if __name__ == "__main__":
@@ -111,9 +113,6 @@ if __name__ == "__main__":
         prog="Lemon", description="Chip-8 Virtual Machine."
     )
     parser.add_argument("rom", help="Path to the rom file.")
-    parser.add_argument(
-        "--scale", help="Scale up\down the display window.", type=int, default=10
-    )
     parser.add_argument(
         "-S", "--step", help="Scale up\down the display window.", action="store_true"
     )
