@@ -114,7 +114,10 @@ if __name__ == "__main__":
     )
     parser.add_argument("rom", help="Path to the rom file.")
     parser.add_argument(
-        "-S", "--step", help="Scale up\down the display window.", action="store_true"
+        "-S", "--scale", help="Scale up\down the display window.", type=int, default=10
+    )
+    parser.add_argument(
+        "-SSM", "--step", help="Switch to single stepping mode.", action="store_true"
     )
     args = parser.parse_args()
 
