@@ -332,18 +332,17 @@ class CPU:
         """
         $Fx0A - Wait for a key press, store the value of the key in Vx.
         """
-        self.halt = True
-
-        while self.halt:
-            event = pygame.event.wait()
-
-            if event.type == pygame.KEYDOWN:
-                if key := self.keypad.handle(event, self.display.capture):
-                    self.V[self.op.x] = key
-                    self.halt = False
+        event = pygame.event.wait()
+        if event.type == pygame.KEYUP:
+            if event.key in self.keypad.keymap:
+                key = self.keypad.keymap[event.key]
+                self.V[self.op.x] = key
+                self.keypad.unset(key)
 
             if event.type == pygame.QUIT:
                 self.display.destroy()
+        else:
+            self.PC -= 2
 
     def LD_DT_Vx(self) -> None:
         """
