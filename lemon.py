@@ -110,7 +110,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("rom", help="Path to the rom file.")
     parser.add_argument(
-        "-S", "--scale", help="Scale up\down the display window.", type=int, default=10
+        "-S", "--scale", help="Scale up or down the display window.", type=int, default=10
     )
     args = parser.parse_args()
 
