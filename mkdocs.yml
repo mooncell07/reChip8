@@ -1,4 +1,4 @@
-site_name: Lemon
+site_name: Lemon.pie
 site_description: Documentation for Lemon.
 site_author: Nova/mooncell07
 
@@ -23,7 +23,7 @@ theme:
     - navigation.top
 
 repo_name: mooncell07/Lemon
-repo_url: https://github.com/mooncell07/Lemon
+repo_url: https://github.com/mooncell07/lemon.pie/
 
 plugins:
 - search

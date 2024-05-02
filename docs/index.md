@@ -5,6 +5,18 @@
 
 Lemon, or Lemon.pie (as I like to call it 🙂), is yet another hobby emulator for the classic variant of the CHIP-8 Virtual Machine written in Python. It's just a toy emulator with no exclusive features that I made solely for my own learning experience. Although I think it's fine for some casual gameplay, I don't really recommend using it for any sort of serious tasks, especially if the task relies on timing accuracy because the timing is really broken!
 
+### Installation & Usage:
+
+Simply install the Lemon emulator (lemon8) from PIP using the command:
+
+`pip install lemon8`
+
+Now, run the emulator in a Command Line Terminal using `python3 lemon8 path_to_rom`
+
+Optionally, you can also scale up the window size using the SCALE option (-S SCALE, --scale SCALE), like so:
+
+`python3 lemon8 path_to_rom -S scale_int`
+
 ### Test Results:
 *tested with chip8-test-suite's ver. 4.1*
 

@@ -1,1 +1,1 @@
-::: components.Memory
+::: lemon8.components.Memory

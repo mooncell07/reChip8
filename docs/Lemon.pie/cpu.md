@@ -1,1 +1,1 @@
-::: components.CPU
+::: lemon8.components.CPU
