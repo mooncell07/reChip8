@@ -33,6 +33,7 @@ class CPU:
         "op",
         "sound",
         "stack",
+        "sync",
     )
 
     def __init__(self, display: Display, memory: Memory, keypad: Keypad) -> None:
@@ -56,6 +57,7 @@ class CPU:
             stack (List[int]): Array of 16 16-bit values for nesting subroutines.
 
             halt (bool): Flag to check if the CPU is halted.
+            sync (bool): Flag to sync the display with the timer.
         """
         # devices
         self.display = display
@@ -74,6 +76,7 @@ class CPU:
 
         # flags
         self.halt: bool = False
+        self.sync: bool = False
 
     def SYS_addr(self) -> None:
         """
@@ -267,6 +270,10 @@ class CPU:
         """
         $Dxyn - Display n-byte sprite starting at memory location I at (Vx, Vy), set VF = collision. :)
         """
+        if not self.sync:
+            self.PC -= 2
+            return
+
         x = self.V[self.op.x] % COLUMNS
         y = self.V[self.op.y] % ROWS
 
@@ -284,6 +291,8 @@ class CPU:
                             self.V[0xF] = 1
 
                         self.display.buffer[index] ^= px
+
+        self.sync = False
 
     def Jp_addr_E(self) -> None:
         """
@@ -333,17 +342,7 @@ class CPU:
         """
         $Fx0A - Wait for a key press, store the value of the key in Vx.
         """
-        event = pygame.event.wait()
-        if event.type == pygame.KEYUP:
-            if event.key in self.keypad.keymap:
-                key = self.keypad.keymap[event.key]
-                self.V[self.op.x] = key
-                self.keypad.unset(key)
-
-            if event.type == pygame.QUIT:
-                self.display.destroy()
-        else:
-            self.PC -= 2
+        self.halt = True
 
     def LD_DT_Vx(self) -> None:
         """
@@ -429,7 +428,6 @@ class CPU:
     def cycle(self) -> None:
         """
         Fetch, Decode and Execute instructions from the memory.
-        Also, decrease timers.
         """
         fetch = (self.memory.space[self.PC] << 8) | self.memory.space[self.PC + 1]
         self.op = Opcode(fetch)
@@ -438,10 +436,8 @@ class CPU:
         try:
             self.optable[(self.op.type & 0xF000) >> 12]()
         except KeyError:
-            logging.error(f"{CROSS} Opcode not found: {hex(self.op.type)}")
+            logging.error(f"{CROSS} Opcode not found: {hex(self.op.inst)}")
             self.display.destroy()
-
-        self.handle_timers()
 
     def handle_timers(self) -> None:
         """

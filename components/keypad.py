@@ -64,18 +64,14 @@ class Keypad:
         """
         self.state[index] = 0
 
-    def handle(self, event: Event, screenshot: t.Callable[..., None]) -> None:
+    def handle(self, event: Event) -> None:
         """
-        Handler for KEYDOWN and PRINTSCREEN.
+        Handler for KEYDOWN.
 
         Args:
             event: A pygame Event.
-            screenshot: Screenshot Callback.
         """
         if event.key in self.keymap:
             key = self.keymap[event.key]
             self.set(key)
             return key
-
-        if event.key == pg.K_PRINTSCREEN:
-            screenshot()

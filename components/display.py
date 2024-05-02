@@ -40,9 +40,10 @@ class Display:
 
         Args:
             multiplier: Constant for scaling the window.
-
         """
-        screen = pygame.display.set_mode((COLUMNS * multiplier, ROWS * multiplier))
+        screen = pygame.display.set_mode(
+            (COLUMNS * multiplier, ROWS * multiplier), vsync=True
+        )
         pygame.display.set_caption("Lemon")
         pygame.display.set_icon(img)
         self = cls(screen, multiplier)
@@ -96,12 +97,6 @@ class Display:
                     pygame.Rect(x, y, self.multiplier, self.multiplier),
                 )
         self.refresh()
-
-    def capture(self) -> None:
-        """
-        Screen capturing util. (Saves the output at ./out.png)
-        """
-        pygame.image.save(self.screen, "./out.png")
 
     def clear(self) -> None:
         """

@@ -1,58 +1,35 @@
 <h1 align="center">
-<img src="./img/lemon.png" height=10>
+<img src="./img/lemon.png" height=200 width=200>
 <br>Lemon.pie
 </h1>
 
-Lemon is a **[CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)** Emulator written in Python using Pygame.
-This library aims at implementing the original and classic varient of CHIP-8 Virtual Machine. It is a toy just for my own learning experience and is in no way suitable for any
-type of research for the original VM.
-
-But, i have to say that it was really fun writing this emulator again after so many months!
-My last implementation of the VM was "Trace-Fractal" that i archived, Lemon can be considered the successor of that project,
-an attempt to make the codebase a tad bit more clean.
-
-
-### Progress (So Far...):
-So far, i have completed almost 90% of the emulator though there are a few things that are still
-needed to be fixed:
-
-- ~Clipping Quirk~ *Fixed in 1.1.0*
-
-- Disp.wait Quirk
-
-- ~Keypad Not Halting Bug~ *Fixed in 1.1.0*
-
-Since i am going for classic CHIP-8 varient, i have to implement those quriks to match
-original CHIP-8 behaviour.
+Lemon, or Lemon.pie (as I like to call it 🙂), is yet another hobby emulator for the classic variant of the CHIP-8 Virtual Machine written in Python. It's just a toy emulator with no exclusive features that I made solely for my own learning experience. Although I think it's fine for some casual gameplay, I don't really recommend using it for any sort of serious tasks, especially if the task relies on timing accuracy because the timing is really broken!
 
 ### Test Results:
-(tested with chip8-test-suite's ver 4.0)
+*tested with chip8-test-suite's ver. 4.1*
 
-**Chip8 Test Suite's logo**:
+- **Chip8 Test Suite's logo**:
 ![Chip8 test suite logo](./img/1-chip8-logo.png)
 
-**IBM Logo**:
+- **IBM Logo**:
 ![ibm logo](./img/2-ibm-logo.png)
 
-**Corax Test**:
+- **Corax Test**:
 ![corax test](./img/3-corax%2B.png)
 
-**Flags Test**:
+- **Flags Test**:
 ![flags test](./img/4-flags.png)
 
-**Quirks Test**:
+- **Quirks Test**:
 ![quirks test](./img/5-quirks.png)
 
-**Keypad Halt Test**:
+- **Keypad Halt Test**:
 ![halt test](./img/6-keypad.png)
 
-### Future Ahead:
+- **Beep Test**:
+<video src="./vid/7-beep.mp4" width="640" height="480" controls></video>
 
-I have decided to make an assembler and disassembler for this project as well and
-eventually emulate other consoles like Gameboy and NES.
-
-
-### Acknowledgement
+### Acknowledgements
 Thanks to...
 
 - [Cowgod's Chip-8 Technical Reference](http://devernay.free.fr/hacks/chip8/C8TECH10.HTM).
