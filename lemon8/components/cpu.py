@@ -1,5 +1,6 @@
 import logging
 import typing as t
+from importlib.resources import files
 from random import randint
 
 import pygame
@@ -63,7 +64,9 @@ class CPU:
         self.display = display
         self.memory = memory
         self.keypad = keypad
-        self.sound: pygame.mixer.Sound = pygame.mixer.Sound("beep.mp3")
+        self.sound: pygame.mixer.Sound = pygame.mixer.Sound(
+            files("lemon8.static").joinpath("beep.mp3").open("rb")
+        )
         self.op: Opcode = Opcode(inst=0x0000)
 
         # registers

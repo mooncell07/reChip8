@@ -1,10 +1,11 @@
 import argparse
 import logging
+from importlib.resources import files
 
 import pygame
 
-from components import (CPU, INIT_LOC_CONSTANT, TICK, WAVE, Display, Keypad,
-                        Memory)
+from .components import (CPU, INIT_LOC_CONSTANT, TICK, WAVE, Display, Keypad,
+                         Memory)
 
 logging.basicConfig(
     format="%(asctime)s:%(msecs)03d (%(levelname)s/%(module)s): %(message)s",
@@ -52,7 +53,7 @@ class Lemon:
         """
         Load Font from the `/bin/FONT` file in memory from location `0x0`
         """
-        self.memory.load_binary("./bin/FONT")
+        self.memory.load_binary(files("lemon8.bin").joinpath("FONT").read_bytes())
         logging.info(f"{TICK} Successfully loaded Fontset at location 0x0")
 
     def load_rom(self, rom: str) -> None:
@@ -62,7 +63,7 @@ class Lemon:
         Args:
             rom: Path to the ROM file.
         """
-        self.memory.load_binary(rom, offset=INIT_LOC_CONSTANT)
+        self.memory.load_binary(open(rom, "rb").read(), offset=INIT_LOC_CONSTANT)
         logging.info(
             f"{TICK} Successfully loaded ROM at location {hex(INIT_LOC_CONSTANT)}"
         )
@@ -75,7 +76,6 @@ class Lemon:
             if not self.cpu.halt:
                 self.cpu.cycle()
                 self.cpu.sync = not ic
-
             self.display.render()
 
         self.cpu.handle_timers()
@@ -110,7 +110,11 @@ if __name__ == "__main__":
     )
     parser.add_argument("rom", help="Path to the rom file.")
     parser.add_argument(
-        "-S", "--scale", help="Scale up or down the display window.", type=int, default=10
+        "-S",
+        "--scale",
+        help="Scale up or down the display window.",
+        type=int,
+        default=10,
     )
     args = parser.parse_args()
 

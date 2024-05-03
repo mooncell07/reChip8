@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lemon8"
-version = "1.3.0"
+version = "1.3.11"
 description = "A CHIP-8 emulator written in Python."
 authors = ["mooncell07 <80042274+mooncell07@users.noreply.github.com>"]
 license = "MIT"

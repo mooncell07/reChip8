@@ -17,14 +17,13 @@ class Memory:
         """
         self.space: bytearray = bytearray(4096)
 
-    def load_binary(self, binary: str, offset: int = 0) -> None:
+    def load_binary(self, binary: bytes, offset: int = 0) -> None:
         """
-        Load file onto the RAM.
+        Load bytes onto the RAM.
 
         Arguments:
-            binary: Path to the binary.
+            binary: a bytes object.
             offset: From where to start loading the elements of the binary.
         """
-        with open(binary, "rb") as f:
-            for i, data in enumerate(f.read()):
-                self.space[i + offset] = data
+        for i, data in enumerate(binary):
+            self.space[i + offset] = data

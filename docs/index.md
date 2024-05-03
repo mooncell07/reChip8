@@ -11,11 +11,11 @@ Simply install the Lemon emulator (lemon8) from PIP using the command:
 
 `pip install lemon8`
 
-Now, run the emulator in a Command Line Terminal using `python3 lemon8 path_to_rom`
+Now, run the emulator in a Command Line Terminal using `python3 -m lemon8 path_to_rom`
 
 Optionally, you can also scale up the window size using the SCALE option (-S SCALE, --scale SCALE), like so:
 
-`python3 lemon8 path_to_rom -S scale_int`
+`python3 -m lemon8 path_to_rom -S scale_int`
 
 ### Test Results:
 *tested with chip8-test-suite's ver. 4.1*

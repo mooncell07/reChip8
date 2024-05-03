@@ -1,12 +1,13 @@
 import typing as t
+from importlib.resources import files
 
 import pygame
 
 from .constants import COLORS, COLUMNS, ROWS
 
 pygame.init()
+icon = pygame.image.load(files("lemon8.static").joinpath("lemon.png").open("rb"))
 
-img = pygame.image.load("./docs/img/lemon.png")
 __all__ = ("Display",)
 
 
@@ -45,7 +46,7 @@ class Display:
             (COLUMNS * multiplier, ROWS * multiplier), vsync=True
         )
         pygame.display.set_caption("Lemon")
-        pygame.display.set_icon(img)
+        pygame.display.set_icon(icon)
         self = cls(screen, multiplier)
 
         return self
