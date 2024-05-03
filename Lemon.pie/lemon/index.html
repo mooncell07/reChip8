@@ -642,8 +642,7 @@ the internal devices.</p>
 
             <details class="quote">
               <summary>Source code in <code>lemon8/__main__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 17</span>
-<span class="normal"> 18</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 18</span>
 <span class="normal"> 19</span>
 <span class="normal"> 20</span>
 <span class="normal"> 21</span>
@@ -767,7 +766,7 @@ the internal devices.</p>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load Font from the `/bin/FONT` file in memory from location `0x0`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="s2">&quot;./bin/FONT&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;lemon8.bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;FONT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded Fontset at location 0x0&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -777,7 +776,7 @@ the internal devices.</p>
 <span class="sd">        Args:</span>
 <span class="sd">            rom: Path to the ROM file.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">rom</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">rom</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">offset</span><span class="o">=</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded ROM at location </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
@@ -790,7 +789,6 @@ the internal devices.</p>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">halt</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">cycle</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">sync</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">ic</span>
-
             <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">handle_timers</span><span class="p">()</span>
@@ -908,7 +906,7 @@ devices.</p>
         <tr>
           <td><code><span title="lemon8.__main__.Lemon.__init__.memory">memory</span></code></td>
           <td>
-                <code><span title="components.Memory">Memory</span></code>
+                <code><a class="autorefs autorefs-internal" title="lemon8.components.Memory" href="../memory/#lemon8.components.Memory">Memory</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -919,7 +917,7 @@ devices.</p>
         <tr>
           <td><code><span title="lemon8.__main__.Lemon.__init__.display">display</span></code></td>
           <td>
-                <code><span title="components.Display">Display</span></code>
+                <code><a class="autorefs autorefs-internal" title="lemon8.components.Display" href="../display/#lemon8.components.Display">Display</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -930,7 +928,7 @@ devices.</p>
         <tr>
           <td><code><span title="lemon8.__main__.Lemon.__init__.keypad">keypad</span></code></td>
           <td>
-                <code><span title="components.Keypad">Keypad</span></code>
+                <code><a class="autorefs autorefs-internal" title="lemon8.components.Keypad" href="../keypad/#lemon8.components.Keypad">Keypad</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -941,7 +939,7 @@ devices.</p>
         <tr>
           <td><code><span title="lemon8.__main__.Lemon.__init__.cpu">cpu</span></code></td>
           <td>
-                <code><span title="components.CPU">CPU</span></code>
+                <code><a class="autorefs autorefs-internal" title="lemon8.components.CPU" href="../cpu/#lemon8.components.CPU">CPU</a></code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -954,8 +952,7 @@ devices.</p>
 
           <details class="quote">
             <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">26</span>
-<span class="normal">27</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
@@ -977,7 +974,8 @@ devices.</p>
 <span class="normal">46</span>
 <span class="normal">47</span>
 <span class="normal">48</span>
-<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mul</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mul</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Lemon Constructor.</span>
 <span class="sd">    The constructor is responsible for loading font and rom, and also initializing other</span>
@@ -1024,16 +1022,16 @@ devices.</p>
 
           <details class="quote">
             <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">51</span>
-<span class="normal">52</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
 <span class="normal">53</span>
 <span class="normal">54</span>
 <span class="normal">55</span>
-<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_font</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_font</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load Font from the `/bin/FONT` file in memory from location `0x0`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="s2">&quot;./bin/FONT&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;lemon8.bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;FONT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded Fontset at location 0x0&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
           </details>
@@ -1088,8 +1086,7 @@ devices.</p>
 
           <details class="quote">
             <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
-<span class="normal">59</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">59</span>
 <span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
@@ -1098,14 +1095,15 @@ devices.</p>
 <span class="normal">65</span>
 <span class="normal">66</span>
 <span class="normal">67</span>
-<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load ROM in memory from location `0x200` (512)</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        rom: Path to the ROM file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">rom</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">rom</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">offset</span><span class="o">=</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded ROM at location </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
@@ -1132,8 +1130,7 @@ devices.</p>
 
           <details class="quote">
             <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">70</span>
-<span class="normal">71</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
 <span class="normal">74</span>
@@ -1151,7 +1148,6 @@ devices.</p>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">halt</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">cycle</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">sync</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">ic</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">handle_timers</span><span class="p">()</span>
