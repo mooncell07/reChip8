@@ -20,25 +20,32 @@ Optionally, you can also scale up the window size using the SCALE option (-S SCA
 ### Test Results:
 *tested with chip8-test-suite's ver. 4.1*
 
-- **Chip8 Test Suite's logo**:
+- **Chip8 Test Suite's Logo**:
+
 ![Chip8 test suite logo](./img/1-chip8-logo.png)
 
 - **IBM Logo**:
+
 ![ibm logo](./img/2-ibm-logo.png)
 
 - **Corax Test**:
+
 ![corax test](./img/3-corax%2B.png)
 
 - **Flags Test**:
+
 ![flags test](./img/4-flags.png)
 
 - **Quirks Test**:
+
 ![quirks test](./img/5-quirks.png)
 
 - **Keypad Halt Test**:
+
 ![halt test](./img/6-keypad.png)
 
 - **Beep Test**:
+
 <video src="./vid/7-beep.mp4" width="640" height="480" controls></video>
 
 ### Acknowledgements
