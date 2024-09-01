@@ -7,7 +7,7 @@ re:Chip8 (Formerly: Lemon.pie), is yet another hobby emulator for the classic va
 
 ### Installation & Usage:
 
-Simply install the re:Chip8 emulator (rechip8) from PYPI using the command:
+Simply install the re:Chip8 emulator ([rechip8](https://pypi.org/project/rechip8/)) from PYPI using the command:
 
 `pip install rechip8`
 
