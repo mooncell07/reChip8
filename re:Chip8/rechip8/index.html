@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation for Lemon.">
+        <meta name="description" content="Documentation for re:Chip8.">
       
       
         <meta name="author" content="Nova/mooncell07">
@@ -19,16 +19,16 @@
         <link rel="next" href="../display/">
       
       
-      <link rel="icon" href="../../img/lemon.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
+      <link rel="icon" href="../../img/invader.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
-        <title>Lemon - Lemon.pie</title>
+        <title>reChip8 - re:Chip8</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="../../css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +71,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lemon8.__main__.Lemon" class="md-skip">
+        <a href="#rechip8.__main__.reChip8" class="md-skip">
           Skip to content
         </a>
       
@@ -96,26 +96,26 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Lemon.pie" class="md-header__button md-logo" aria-label="Lemon.pie" data-md-component="logo">
+    <a href="../.." title="re:Chip8" class="md-header__button md-logo" aria-label="re:Chip8" data-md-component="logo">
       
-  <img src="../../img/lemon.png" alt="logo">
+  <img src="../../img/invader.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Lemon.pie
+            re:Chip8
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lemon
+              reChip8
             
           </span>
         </div>
@@ -128,20 +128,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
       </label>
     
   
@@ -149,13 +149,13 @@
       
     
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -164,21 +164,21 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -192,13 +192,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/mooncell07/lemon.pie/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/mooncell07/reChip8/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    mooncell07/Lemon
+    mooncell07/reChip8
   </div>
 </a>
       </div>
@@ -228,22 +228,22 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Lemon.pie" class="md-nav__button md-logo" aria-label="Lemon.pie" data-md-component="logo">
+    <a href="../.." title="re:Chip8" class="md-nav__button md-logo" aria-label="re:Chip8" data-md-component="logo">
       
-  <img src="../../img/lemon.png" alt="logo">
+  <img src="../../img/invader.png" alt="logo">
 
     </a>
-    Lemon.pie
+    re:Chip8
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/mooncell07/lemon.pie/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/mooncell07/reChip8/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    mooncell07/Lemon
+    mooncell07/reChip8
   </div>
 </a>
     </div>
@@ -293,7 +293,7 @@
             
   
   <span class="md-ellipsis">
-    Lemon.pie
+    re:Chip8
   </span>
   
 
@@ -303,7 +303,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Lemon.pie
+            re:Chip8
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -325,7 +325,7 @@
           
   
   <span class="md-ellipsis">
-    Lemon
+    reChip8
   </span>
   
 
@@ -336,7 +336,7 @@
         
   
   <span class="md-ellipsis">
-    Lemon
+    reChip8
   </span>
   
 
@@ -356,54 +356,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8" class="md-nav__link">
     <span class="md-ellipsis">
-      Lemon
+      rechip8.__main__.reChip8
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.__init__" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.__init__" class="md-nav__link">
     <span class="md-ellipsis">
-      __init__
+      __init__()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.load_font" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.load_font" class="md-nav__link">
     <span class="md-ellipsis">
-      load_font
+      load_font()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.load_rom" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.load_rom" class="md-nav__link">
     <span class="md-ellipsis">
-      load_rom
+      load_rom()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.tick" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.tick" class="md-nav__link">
     <span class="md-ellipsis">
-      tick
+      tick()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.run" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.run" class="md-nav__link">
     <span class="md-ellipsis">
-      run
+      run()
     </span>
   </a>
   
@@ -555,54 +555,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8" class="md-nav__link">
     <span class="md-ellipsis">
-      Lemon
+      rechip8.__main__.reChip8
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.__init__" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.__init__" class="md-nav__link">
     <span class="md-ellipsis">
-      __init__
+      __init__()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.load_font" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.load_font" class="md-nav__link">
     <span class="md-ellipsis">
-      load_font
+      load_font()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.load_rom" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.load_rom" class="md-nav__link">
     <span class="md-ellipsis">
-      load_rom
+      load_rom()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.tick" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.tick" class="md-nav__link">
     <span class="md-ellipsis">
-      tick
+      tick()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.__main__.Lemon.run" class="md-nav__link">
+  <a href="#rechip8.__main__.reChip8.run" class="md-nav__link">
     <span class="md-ellipsis">
-      run
+      run()
     </span>
   </a>
   
@@ -626,111 +626,22 @@
   
 
 
-  <h1>Lemon</h1>
+  <h1>reChip8</h1>
 
 <div class="doc doc-object doc-class">
 
+<a id="rechip8.__main__.reChip8"></a>
+    <div class="doc doc-contents first">
 
-
-<a id="lemon8.__main__.Lemon"></a>
-  <div class="doc doc-contents first">
-
-  
-      <p>As the main entry point for lemon emulator,
+      <p>As the main entry point for re:Chip8 emulator,
 this class takes care of interfacing with the user and
 the internal devices.</p>
 
-            <details class="quote">
-              <summary>Source code in <code>lemon8/__main__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Lemon</span><span class="p">:</span>
+        <details class="quote">
+          <summary>Source code in <code>rechip8/__main__.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">reChip8</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    As the main entry point for lemon emulator,</span>
+<span class="sd">    As the main entry point for re:Chip8 emulator,</span>
 <span class="sd">    this class takes care of interfacing with the user and</span>
 <span class="sd">    the internal devices.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -739,7 +650,7 @@ the internal devices.</p>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mul</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Lemon Constructor.</span>
+<span class="sd">        reChip8 Constructor.</span>
 <span class="sd">        The constructor is responsible for loading font and rom, and also initializing other</span>
 <span class="sd">        devices.</span>
 
@@ -766,7 +677,7 @@ the internal devices.</p>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load Font from the `/bin/FONT` file in memory from location `0x0`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;lemon8.bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;FONT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;rechip8.bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;FONT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded Fontset at location 0x0&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -815,10 +726,10 @@ the internal devices.</p>
                         <span class="bp">self</span><span class="o">.</span><span class="n">keypad</span><span class="o">.</span><span class="n">unset</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-            </details>
+</code></pre></div>
+        </details>
 
-  
+
 
   <div class="doc doc-children">
 
@@ -831,153 +742,91 @@ the internal devices.</p>
 
 
 
-<div class="doc doc-object doc-function">
 
 
 
-<h2 id="lemon8.__main__.Lemon.__init__" class="doc doc-heading">
-          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">rom</span><span class="p">,</span> <span class="n">mul</span><span class="p">)</span></code>
 
-<a href="#lemon8.__main__.Lemon.__init__" class="headerlink" title="Permanent link">+</a></h2>
+  <div class="doc doc-object doc-method">
 
 
-  <div class="doc doc-contents ">
-  
-      <p>Lemon Constructor.
+
+<h2 id="rechip8.__main__.reChip8.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">,</span> <span class="n">mul</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#rechip8.__main__.reChip8.__init__" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>reChip8 Constructor.
 The constructor is responsible for loading font and rom, and also initializing other
 devices.</p>
 
-
-
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
+        <td><code>rom</code></td>
+        <td><code>str</code></td>
+        <td><p>Path to the ROM file.</p></td>
+        <td><em>required</em></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>rom</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3.10/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path to the ROM file.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>mul</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3.10/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The screen size multiplier.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-
-  <p><strong>Attributes:</strong></p>
-  <table>
-    <thead>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
+        <td><code>mul</code></td>
+        <td><code>int</code></td>
+        <td><p>The screen size multiplier.</p></td>
+        <td><em>required</em></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code><span title="lemon8.__main__.Lemon.__init__.memory">memory</span></code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="lemon8.components.Memory" href="../memory/#lemon8.components.Memory">Memory</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Primary Memory of size 4096 bytes.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code><span title="lemon8.__main__.Lemon.__init__.display">display</span></code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="lemon8.components.Display" href="../display/#lemon8.components.Display">Display</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Display Handler for rendering sprites.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code><span title="lemon8.__main__.Lemon.__init__.keypad">keypad</span></code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="lemon8.components.Keypad" href="../keypad/#lemon8.components.Keypad">Keypad</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>16-key hexadecimal keypad for taking input.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code><span title="lemon8.__main__.Lemon.__init__.cpu">cpu</span></code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="lemon8.components.CPU" href="../cpu/#lemon8.components.CPU">CPU</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Object representing Central Processing Unit of the emulator.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-          <details class="quote">
-            <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mul</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+  </tbody>
+</table>
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>memory</code></td>
+        <td><code>Memory</code></td>
+        <td><p>Primary Memory of size 4096 bytes.</p></td>
+      </tr>
+      <tr>
+        <td><code>display</code></td>
+        <td><code>Display</code></td>
+        <td><p>Display Handler for rendering sprites.</p></td>
+      </tr>
+      <tr>
+        <td><code>keypad</code></td>
+        <td><code>Keypad</code></td>
+        <td><p>16-key hexadecimal keypad for taking input.</p></td>
+      </tr>
+      <tr>
+        <td><code>cpu</code></td>
+        <td><code>CPU</code></td>
+        <td><p>Object representing Central Processing Unit of the emulator.</p></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>rechip8/__main__.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mul</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Lemon Constructor.</span>
+<span class="sd">    reChip8 Constructor.</span>
 <span class="sd">    The constructor is responsible for loading font and rom, and also initializing other</span>
 <span class="sd">    devices.</span>
 
@@ -999,104 +848,80 @@ devices.</p>
     <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="p">:</span> <span class="n">CPU</span> <span class="o">=</span> <span class="n">CPU</span><span class="p">(</span>
         <span class="n">display</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">,</span> <span class="n">keypad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">keypad</span>
     <span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.__main__.Lemon.load_font" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">load_font</span><span class="p">()</span></code>
-
-<a href="#lemon8.__main__.Lemon.load_font" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.__main__.reChip8.load_font" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_font</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.__main__.reChip8.load_font" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Load Font from the <code>/bin/FONT</code> file in memory from location <code>0x0</code></p>
 
-          <details class="quote">
-            <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_font</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <details class="quote">
+          <summary>Source code in <code>rechip8/__main__.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_font</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load Font from the `/bin/FONT` file in memory from location `0x0`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;lemon8.bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;FONT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load_binary</span><span class="p">(</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;rechip8.bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;FONT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded Fontset at location 0x0&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.__main__.Lemon.load_rom" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">load_rom</span><span class="p">(</span><span class="n">rom</span><span class="p">)</span></code>
-
-<a href="#lemon8.__main__.Lemon.load_rom" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.__main__.reChip8.load_rom" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.__main__.reChip8.load_rom" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Load ROM in memory from location <code>0x200</code> (512)</p>
 
-
-
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
+        <td><code>rom</code></td>
+        <td><code>str</code></td>
+        <td><p>Path to the ROM file.</p></td>
+        <td><em>required</em></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>rom</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3.10/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path to the ROM file.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-          <details class="quote">
-            <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>rechip8/__main__.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_rom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load ROM in memory from location `0x200` (512)</span>
 
@@ -1107,40 +932,31 @@ devices.</p>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">TICK</span><span class="si">}</span><span class="s2"> Successfully loaded ROM at location </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">INIT_LOC_CONSTANT</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.__main__.Lemon.tick" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">tick</span><span class="p">()</span></code>
-
-<a href="#lemon8.__main__.Lemon.tick" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.__main__.reChip8.tick" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.__main__.reChip8.tick" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Method representing a single tick from the emulator.</p>
 
-          <details class="quote">
-            <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <details class="quote">
+          <summary>Source code in <code>rechip8/__main__.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Method representing a single tick from the emulator.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1151,51 +967,31 @@ devices.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">handle_timers</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.__main__.Lemon.run" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">run</span><span class="p">()</span></code>
-
-<a href="#lemon8.__main__.Lemon.run" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.__main__.reChip8.run" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.__main__.reChip8.run" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Step through the emulation indefinitely.</p>
 
-          <details class="quote">
-            <summary>Source code in <code>lemon8/__main__.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <details class="quote">
+          <summary>Source code in <code>rechip8/__main__.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Step through the emulation indefinitely.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1217,20 +1013,21 @@ devices.</p>
                     <span class="bp">self</span><span class="o">.</span><span class="n">keypad</span><span class="o">.</span><span class="n">unset</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-          </details>
-  </div>
-
-</div>
-
-
-
-  </div>
+</code></pre></div>
+        </details>
+    </div>
 
   </div>
 
 
-</div>
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
@@ -1253,7 +1050,7 @@ devices.</p>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
         
@@ -1287,10 +1084,10 @@ devices.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation for Lemon.">
+        <meta name="description" content="Documentation for re:Chip8.">
       
       
         <meta name="author" content="Nova/mooncell07">
@@ -17,16 +17,16 @@
       
       
       
-      <link rel="icon" href="../../img/lemon.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
+      <link rel="icon" href="../../img/invader.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
-        <title>Keypad - Lemon.pie</title>
+        <title>Keypad - re:Chip8</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -52,7 +52,7 @@
     
       <link rel="stylesheet" href="../../css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lemon8.components.Keypad" class="md-skip">
+        <a href="#rechip8.core.keypad.Keypad" class="md-skip">
           Skip to content
         </a>
       
@@ -94,20 +94,20 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Lemon.pie" class="md-header__button md-logo" aria-label="Lemon.pie" data-md-component="logo">
+    <a href="../.." title="re:Chip8" class="md-header__button md-logo" aria-label="re:Chip8" data-md-component="logo">
       
-  <img src="../../img/lemon.png" alt="logo">
+  <img src="../../img/invader.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Lemon.pie
+            re:Chip8
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -126,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
       </label>
     
   
@@ -147,13 +147,13 @@
       
     
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -162,21 +162,21 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -190,13 +190,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/mooncell07/lemon.pie/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/mooncell07/reChip8/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    mooncell07/Lemon
+    mooncell07/reChip8
   </div>
 </a>
       </div>
@@ -226,22 +226,22 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Lemon.pie" class="md-nav__button md-logo" aria-label="Lemon.pie" data-md-component="logo">
+    <a href="../.." title="re:Chip8" class="md-nav__button md-logo" aria-label="re:Chip8" data-md-component="logo">
       
-  <img src="../../img/lemon.png" alt="logo">
+  <img src="../../img/invader.png" alt="logo">
 
     </a>
-    Lemon.pie
+    re:Chip8
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/mooncell07/lemon.pie/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/mooncell07/reChip8/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    mooncell07/Lemon
+    mooncell07/reChip8
   </div>
 </a>
     </div>
@@ -291,7 +291,7 @@
             
   
   <span class="md-ellipsis">
-    Lemon.pie
+    re:Chip8
   </span>
   
 
@@ -301,7 +301,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Lemon.pie
+            re:Chip8
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -312,11 +312,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lemon/" class="md-nav__link">
+      <a href="../rechip8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lemon
+    reChip8
   </span>
   
 
@@ -459,16 +459,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad" class="md-nav__link">
     <span class="md-ellipsis">
-      Keypad
+      rechip8.core.keypad.Keypad
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.keymap" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.keymap" class="md-nav__link">
     <span class="md-ellipsis">
       keymap
     </span>
@@ -477,36 +477,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.__init__" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.__init__" class="md-nav__link">
     <span class="md-ellipsis">
-      __init__
+      __init__()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.set" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.set" class="md-nav__link">
     <span class="md-ellipsis">
-      set
+      set()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.unset" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.unset" class="md-nav__link">
     <span class="md-ellipsis">
-      unset
+      unset()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.handle" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.handle" class="md-nav__link">
     <span class="md-ellipsis">
-      handle
+      handle()
     </span>
   </a>
   
@@ -553,16 +553,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad" class="md-nav__link">
     <span class="md-ellipsis">
-      Keypad
+      rechip8.core.keypad.Keypad
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.keymap" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.keymap" class="md-nav__link">
     <span class="md-ellipsis">
       keymap
     </span>
@@ -571,36 +571,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.__init__" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.__init__" class="md-nav__link">
     <span class="md-ellipsis">
-      __init__
+      __init__()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.set" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.set" class="md-nav__link">
     <span class="md-ellipsis">
-      set
+      set()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.unset" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.unset" class="md-nav__link">
     <span class="md-ellipsis">
-      unset
+      unset()
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lemon8.components.Keypad.handle" class="md-nav__link">
+  <a href="#rechip8.core.keypad.Keypad.handle" class="md-nav__link">
     <span class="md-ellipsis">
-      handle
+      handle()
     </span>
   </a>
   
@@ -628,85 +628,14 @@
 
 <div class="doc doc-object doc-class">
 
+<a id="rechip8.core.keypad.Keypad"></a>
+    <div class="doc doc-contents first">
 
-
-<a id="lemon8.components.Keypad"></a>
-  <div class="doc doc-contents first">
-
-  
       <p>An object represeting a 16-key keypad of a standard keypad.</p>
 
-            <details class="quote">
-              <summary>Source code in <code>lemon8/components/keypad.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Keypad</span><span class="p">:</span>
+        <details class="quote">
+          <summary>Source code in <code>core/keypad.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Keypad</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An object represeting a 16-key keypad of a standard keypad.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -775,10 +704,10 @@
             <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keymap</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">key</span>
-</code></pre></div></td></tr></table></div>
-            </details>
+</code></pre></div>
+        </details>
 
-  
+
 
   <div class="doc doc-children">
 
@@ -788,79 +717,70 @@
 
 
 
-<div class="doc doc-object doc-attribute">
+
+  <div class="doc doc-object doc-attribute">
 
 
 
-<h2 id="lemon8.components.Keypad.keymap" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">keymap</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></code>
-  
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-property"><code>property</code></small>
+<h2 id="rechip8.core.keypad.Keypad.keymap" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">keymap</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
   </span>
 
-<a href="#lemon8.components.Keypad.keymap" class="headerlink" title="Permanent link">+</a></h2>
+<a href="#rechip8.core.keypad.Keypad.keymap" class="headerlink" title="Permanent link">+</a></h2>
 
+    <div class="doc doc-contents ">
 
-  <div class="doc doc-contents ">
-  
       <p>Mapping of pygame keys with locations on the keypad.</p>
+    </div>
+
   </div>
 
-</div>
 
 
 
 
-<div class="doc doc-object doc-function">
+
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.components.Keypad.__init__" class="doc doc-heading">
-          <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+<h2 id="rechip8.core.keypad.Keypad.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
 
-<a href="#lemon8.components.Keypad.__init__" class="headerlink" title="Permanent link">+</a></h2>
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
 
+<a href="#rechip8.core.keypad.Keypad.__init__" class="headerlink" title="Permanent link">+</a></h2>
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Keypad Constructor.</p>
 
-
-
-  <p><strong>Attributes:</strong></p>
-  <table>
-    <thead>
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
+        <td><code>state</code></td>
+        <td></td>
+        <td><p>State storing KEYUP and KEYDOWN status of the 16 keys.</p></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code><span title="lemon8.components.Keypad.__init__.state">state</span></code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>State storing KEYUP and KEYDOWN status of the 16 keys.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-          <details class="quote">
-            <summary>Source code in <code>lemon8/components/keypad.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>core/keypad.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Keypad Constructor.</span>
 
@@ -868,67 +788,50 @@
 <span class="sd">        state: State storing KEYUP and KEYDOWN status of the 16 keys.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">16</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.components.Keypad.set" class="doc doc-heading">
-          <code class="highlight language-python"><span class="nb">set</span><span class="p">(</span><span class="n">index</span><span class="p">)</span></code>
-
-<a href="#lemon8.components.Keypad.set" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.core.keypad.Keypad.set" class="doc doc-heading">
+<code class="highlight language-python"><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.core.keypad.Keypad.set" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Method to set a key in state array.</p>
 
-
-
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
+        <td><code>index</code></td>
+        <td><code>int</code></td>
+        <td><p>The key to set.</p></td>
+        <td><em>required</em></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>index</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3.10/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The key to set.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-          <details class="quote">
-            <summary>Source code in <code>lemon8/components/keypad.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>core/keypad.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Method to set a key in state array.</span>
 
@@ -936,67 +839,50 @@
 <span class="sd">        index: The key to set.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.components.Keypad.unset" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">unset</span><span class="p">(</span><span class="n">index</span><span class="p">)</span></code>
-
-<a href="#lemon8.components.Keypad.unset" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.core.keypad.Keypad.unset" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">unset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.core.keypad.Keypad.unset" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Method to unset a key in state array.</p>
 
-
-
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
+        <td><code>index</code></td>
+        <td><code>int</code></td>
+        <td><p>The key to unset.</p></td>
+        <td><em>required</em></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>index</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3.10/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The key to unset.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-          <details class="quote">
-            <summary>Source code in <code>lemon8/components/keypad.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>core/keypad.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">unset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Method to unset a key in state array.</span>
 
@@ -1004,70 +890,50 @@
 <span class="sd">        index: The key to unset.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div></td></tr></table></div>
-          </details>
+</code></pre></div>
+        </details>
+    </div>
+
   </div>
 
-</div>
 
 
-<div class="doc doc-object doc-function">
+  <div class="doc doc-object doc-method">
 
 
 
-<h2 id="lemon8.components.Keypad.handle" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">handle</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></code>
-
-<a href="#lemon8.components.Keypad.handle" class="headerlink" title="Permanent link">+</a></h2>
+<h2 id="rechip8.core.keypad.Keypad.handle" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span></code>
 
 
-  <div class="doc doc-contents ">
-  
+<a href="#rechip8.core.keypad.Keypad.handle" class="headerlink" title="Permanent link">+</a></h2>
+
+    <div class="doc doc-contents ">
+
       <p>Handler for KEYDOWN.</p>
 
-
-
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
+        <td><code>event</code></td>
+        <td><code>Event</code></td>
+        <td><p>A pygame Event.</p></td>
+        <td><em>required</em></td>
       </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>event</code></td>
-          <td>
-                <code><span title="pygame.event.Event">Event</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A pygame Event.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-          <details class="quote">
-            <summary>Source code in <code>lemon8/components/keypad.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>core/keypad.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Handler for KEYDOWN.</span>
 
@@ -1078,20 +944,21 @@
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keymap</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">key</span>
-</code></pre></div></td></tr></table></div>
-          </details>
-  </div>
-
-</div>
-
-
-
-  </div>
+</code></pre></div>
+        </details>
+    </div>
 
   </div>
 
 
-</div>
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
@@ -1114,7 +981,7 @@
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
         
@@ -1148,10 +1015,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
