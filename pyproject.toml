@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "rechip8"
-version = "1.4.2"
+version = "1.4.3"
 description = "A CHIP-8 Emulator written in Python."
 authors = ["mooncell07 <80042274+mooncell07@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
 documentation = "https://mooncell07.github.io/reChip8/"
+homepage = "https://github.com/mooncell07/reChip8/"
 
 [tool.poetry.dependencies]
 python = "^3.11"
