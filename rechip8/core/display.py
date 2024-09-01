@@ -6,7 +6,7 @@ import pygame
 from .constants import COLORS, COLUMNS, ROWS
 
 pygame.init()
-icon = pygame.image.load(files("lemon8.static").joinpath("lemon.png").open("rb"))
+icon = pygame.image.load(files("rechip8.static").joinpath("invader.png").open("rb"))
 
 __all__ = ("Display",)
 
@@ -45,7 +45,7 @@ class Display:
         screen = pygame.display.set_mode(
             (COLUMNS * multiplier, ROWS * multiplier), vsync=True
         )
-        pygame.display.set_caption("Lemon")
+        pygame.display.set_caption("re:Chip8")
         pygame.display.set_icon(icon)
         self = cls(screen, multiplier)
 

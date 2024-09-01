@@ -65,7 +65,7 @@ class CPU:
         self.memory = memory
         self.keypad = keypad
         self.sound: pygame.mixer.Sound = pygame.mixer.Sound(
-            files("lemon8.static").joinpath("beep.mp3").open("rb")
+            files("rechip8.static").joinpath("beep.mp3").open("rb")
         )
         self.op: Opcode = Opcode(inst=0x0000)
 

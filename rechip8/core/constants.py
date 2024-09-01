@@ -4,4 +4,4 @@ CROSS = "\N{cross mark}"
 WAVE = "\N{WAVING HAND SIGN}"
 ROWS = 32
 COLUMNS = 64
-COLORS = {"ON": (255, 255, 0, 255), "OFF": (0, 0, 0, 255)}
+COLORS = {"ON": (255, 71, 191), "OFF": (20, 23, 55)}

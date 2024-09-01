@@ -1,20 +1,20 @@
-site_name: Lemon.pie
-site_description: Documentation for Lemon.
+site_name: re:Chip8
+site_description: Documentation for re:Chip8.
 site_author: Nova/mooncell07
 
 theme:
   name: "material"
-  logo: img/lemon.png
-  favicon: img/lemon.ico
+  logo: img/invader.png
+  favicon: img/invader.ico
   palette:
     - scheme: slate
-      primary: yellow
+      primary: custom
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
 
     - scheme: default
-      primary: yellow
+      primary: custom
       toggle:
         icon: material/toggle-switch
         name: Switch to Dark mode
@@ -22,8 +22,8 @@ theme:
   features:
     - navigation.top
 
-repo_name: mooncell07/Lemon
-repo_url: https://github.com/mooncell07/lemon.pie/
+repo_name: mooncell07/reChip8
+repo_url: https://github.com/mooncell07/reChip8/
 
 plugins:
 - search
@@ -38,13 +38,13 @@ plugins:
 
 nav:
   - Home: index.md
-  - Lemon.pie:
-    - Lemon: Lemon.pie/lemon.md
-    - Display: Lemon.pie/display.md
-    - CPU: Lemon.pie/cpu.md
-    - Memory: Lemon.pie/memory.md
-    - Opcode: Lemon.pie/opcode.md
-    - Keypad: Lemon.pie/keypad.md
+  - re:Chip8:
+    - reChip8: re:Chip8/rechip8.md
+    - Display: re:Chip8/display.md
+    - CPU: re:Chip8/cpu.md
+    - Memory: re:Chip8/memory.md
+    - Opcode: re:Chip8/opcode.md
+    - Keypad: re:Chip8/keypad.md
 
 markdown_extensions:
   - pymdownx.highlight

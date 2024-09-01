@@ -4,7 +4,7 @@ from importlib.resources import files
 
 import pygame
 
-from .components import (CPU, INIT_LOC_CONSTANT, TICK, WAVE, Display, Keypad,
+from .core import (CPU, INIT_LOC_CONSTANT, TICK, WAVE, Display, Keypad,
                          Memory)
 
 logging.basicConfig(
@@ -15,9 +15,9 @@ logging.basicConfig(
 )
 
 
-class Lemon:
+class reChip8:
     """
-    As the main entry point for lemon emulator,
+    As the main entry point for re:Chip8 emulator,
     this class takes care of interfacing with the user and
     the internal devices.
     """
@@ -26,7 +26,7 @@ class Lemon:
 
     def __init__(self, rom: str, mul: int) -> None:
         """
-        Lemon Constructor.
+        reChip8 Constructor.
         The constructor is responsible for loading font and rom, and also initializing other
         devices.
 
@@ -53,7 +53,7 @@ class Lemon:
         """
         Load Font from the `/bin/FONT` file in memory from location `0x0`
         """
-        self.memory.load_binary(files("lemon8.bin").joinpath("FONT").read_bytes())
+        self.memory.load_binary(files("rechip8.bin").joinpath("FONT").read_bytes())
         logging.info(f"{TICK} Successfully loaded Fontset at location 0x0")
 
     def load_rom(self, rom: str) -> None:
@@ -106,21 +106,21 @@ class Lemon:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        prog="Lemon", description="Chip-8 Virtual Machine."
+        prog="re:Chip8", description="Chip-8 Virtual Machine."
     )
     parser.add_argument("rom", help="Path to the rom file.")
     parser.add_argument(
         "-S",
         "--scale",
-        help="Scale up or down the display window.",
+        help="Scale up or down the Window size.",
         type=int,
         default=10,
     )
     args = parser.parse_args()
 
-    lemon = Lemon(args.rom, args.scale)
+    rechip8 = reChip8(args.rom, args.scale)
 
     try:
-        lemon.run()
+        rechip8.run()
     except KeyboardInterrupt:
         logging.info(f"bye {WAVE}")
