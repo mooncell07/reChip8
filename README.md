@@ -1,5 +1,4 @@
-<p align="center"> <img src="https://raw.githubusercontent.com/mooncell07/reChip8/master/docs/img/invader.png" height=100> </p>
-
+<p align="center"> <img src="https://raw.githubusercontent.com/mooncell07/reChip8/master/docs/img/invader.png" height=150> </p>
 <h1 align="center"> <a href="https://mooncell07.github.io/reChip8/">re:Chip8</a> </h1>
 <h2 align="center">
 <img alt="Stargazers" src="https://img.shields.io/github/stars/mooncell07/reChip8?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41">

@@ -3,7 +3,7 @@
 <br>re:Chip8
 </h1>
 
-re:Chip8 (Formerly: ), is yet another hobby emulator for the classic variant of the CHIP-8 Virtual Machine written in Python. It's just a toy emulator with no exclusive features that I made solely for my own learning experience. Although I think it's fine for some casual gameplay, I don't really recommend using it for any sort of serious tasks, especially if the task relies on timing accuracy because the timing is really broken!
+re:Chip8 (Formerly: Lemon.pie), is yet another hobby emulator for the classic variant of the CHIP-8 Virtual Machine written in Python. It's just a toy emulator with no exclusive features that I made solely for my own learning experience. Although I think it's fine for some casual gameplay, I don't really recommend using it for any sort of serious tasks, especially if the task relies on timing accuracy because the timing is really broken!
 
 ### Installation & Usage:
 
