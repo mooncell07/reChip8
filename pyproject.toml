@@ -2,7 +2,7 @@
 name = "rechip8"
 version = "1.4.3"
 description = "A CHIP-8 Emulator written in Python."
-authors = ["mooncell07 <80042274+mooncell07@users.noreply.github.com>"]
+authors = ["Nova <mooncell07@proton.me>"]
 license = "MIT"
 readme = "README.md"
 documentation = "https://mooncell07.github.io/reChip8/"
@@ -12,7 +12,7 @@ homepage = "https://github.com/mooncell07/reChip8/"
 python = "^3.11"
 pygame = "^2.2.0"
 
-[tool.poetry.dev-dependencies]
+[poetry.group.dev.dependencies]
 mkdocs = "^1.5.2"
 mkdocstrings = {extras = ["python-legacy"], version = "^0.22.0"}
 mkdocs-material = "^9.2.3"

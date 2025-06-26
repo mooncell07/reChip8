@@ -27,6 +27,8 @@ repo_url: https://github.com/mooncell07/reChip8/
 
 plugins:
 - search
+- autorefs:
+    link_titles: external
 - mkdocstrings:
     handlers:
       python:
@@ -50,6 +52,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - admonition
+  - attr_list
   - toc:
       permalink: "+"
 
