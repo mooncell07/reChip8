@@ -40,13 +40,13 @@ plugins:
 
 nav:
   - Home: index.md
-  - re:Chip8:
-    - reChip8: re:Chip8/rechip8.md
-    - Display: re:Chip8/display.md
-    - CPU: re:Chip8/cpu.md
-    - Memory: re:Chip8/memory.md
-    - Opcode: re:Chip8/opcode.md
-    - Keypad: re:Chip8/keypad.md
+  - reChip8:
+    - reChip8: reChip8/rechip8.md
+    - Display: reChip8/display.md
+    - CPU: reChip8/cpu.md
+    - Memory: reChip8/memory.md
+    - Opcode: reChip8/opcode.md
+    - Keypad: reChip8/keypad.md
 
 markdown_extensions:
   - pymdownx.highlight
